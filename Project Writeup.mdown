@@ -1,0 +1,145 @@
+
+AIM
+
+To explore the Prosper Loans dataset and provide informative and relevant visualisations for 2 groups of people- Borrowers and Lenders. It would also be interesting to provide "Overview" information about the platform.
+
+1. SUMMARY (4 sentences)
+
+I want my project to be a quick one-stop shop for the most important questions that lenders and borrowers might have about using Prosper.
+
+Borrowers might be concerned about what type of factors will affect their APR (ie how expensive it is for them to borrow)
+
+Lenders might be concerned about the possiblity of default/ loans going into collections, the creditworthiness of the borrowers and any other factors such as recommendations that help them gauge risk. From my background reading, whilst the collections process aims to recover the money owed, this is not guaranteed and the sum returned will be net of collection agency fees.
+
+
+2. DESIGN
+
+
+ROUGH STAGE DESIGN CHOICES
+
+
+High level design choice: 3 Dashboards, each tailored to a specific user. Overview - general user Borrower/Lender - self explanatory. The main aim of each dashboard is to meet the needs of that user type, focusing on a particular variable / set of variables, and allowing the user sufficient scope to explore by using the filters.
+
+Overview Section:
+
+O1 - Allow the user to get a quick overview of the current state of each loan - they can filter by state and exclude certain loan statuses. This could be particularly interesting when comparing loans that completed with those that defaulted/ chargedoff. Went with bubble plot using size of the bubble to quickly let the user understand relative amounts at a glance.
+
+O2 - Another plot, this time giving the number of loans made by state. Can be filtered by loan status.
+
+O3 - Went with a graph broken down by colour to give a sense of how much is being loaned to each group over time, Post 2009. Added option to filter by loan status
+
+Borrower Section: (All attempting to answer the question - how much will it cost me to borrow by focusing on Average APR as the outcome variable)
+
+B1 - Idea here is to give a borrower some idea of not only how expensive it is to borrow from Prosper depending on your credit rating, but also how this has changed over time. 
+
+B2 - As for B1, however, using Prosper Rating rather than Credit Rating as this is how loans were rated post July 2009
+
+B3 - Workup for B4
+
+B4 - Bar Graph showing how credit rating (ie pre 2009) and home ownership affect APR. Can adjust the output by removing CR's that you don't want to see.
+
+B5 -As above but for post 09 and without a filter. Bar graph chosen to allow easy comparisons.
+
+B6 - Boxplot showing the average APR for each income Range. We get a quick sense of the range of values.
+
+B7 - Another Bargraph looking at Average APR, this time by Employment Status. Home ownership also included.
+
+Lender Section: (Multiple outcome variables - attempted to address this by looking at AVG return and proportion of loans that went "Bad" ie not completed)
+
+L1 - Simple line graph with multiple filters, allowing a lender to quickly tell how the estimated return has changed over time for the type of borrower they might be considering. This could help them decide if the RoT is a good deal, relative to other loans made in the past. Quick comparisons can be made between multiple professions in particular states, and adjusted for risk rating.
+
+L2 - Exploring Investors per Loan - this could be interesting as this is one of the risk reduction strategies available - partnering up with others in order to share the burden if any one loan goes bad. By showing the loan status in colour we can explore if this helped at all for loans taken out at a specific time. Once again use of filters is included to allow the user to decide what they are interested in; leaving all of them on by default can ruin legibility.
+
+L3 - Exploring recommendations by occupation - Simple exploration of the most trusted professions, compared using a bar graph
+
+L4 - Designed to show which occupations have the biggest proportion of "Bad Loans" - I created a set where membership is defined by the loan status being Defaulted, Charged Off or in some form of delinquency. The resulting bar graph shows these in red and any other category in blue.
+
+L5 - I realised that it may be a better to exclude Current loans from the data, because this is such a high proportion of the overall figures and we can't predict what the ultimate result of these loans will be- good or bad. This bar graph quickly gives us a sense of which might be riskier professions to lend to, based on the proportion of the bar that is red. We can quickly compare professions that have a similar loan volume as well.
+
+
+3. FEEDBACK
+
+Feedback from Louise Wilson 21/07/2017
+
+
+1. What do you notice in the visualization?
+
+Prosper Rating (Post 09) vs APR by Home Ownership - doesn't appear to impact APR to info not useful
+What about making it so you can put in your job?
+Trend over time is clear, showing increasing APR across all by AA/A rating
+What about a map
+Income vs APR  by Home Ownership - unclear graph, missing home ownership info
+
+
+2. What questions do you have about the data?
+
+How useful is average recommendation if it relies on people voluntarily recommending others?
+What is the average loan per person in each state and is there a correlation with completion rate?
+Do people in lower incomes receive a lower credit rating?
+Can I see the total 'bad' loans by state? (i.e not separated into separate datasets)
+
+3. What relationships do you notice?
+
+Loans became more popular/higher value throughout 2013
+People on lower incomes acquire higher APR
+No relationship appears to exist between home ownership and credit rating
+
+4. What do you think is the main takeaway from this visualization??
+
+Overall, the proportion of 'bad' loans is only marginally lower that completed loans, meaning this is perhaps high risk. This varies significantly by state and occupation, however. Admin assistances and sales (commission) are particular high risk, while analysts and accountants are a much safer bet for completion. Loans in AK have a high completion rate proportionally, while CA appears much riskier. 
+
+
+5. Is there something you don’t understand in the graphic?
+
+-No answer received
+
+
+Post Feedback - CHANGES MADE
+
+Added O4 map visualisation showing the amount loaned by state, by time. Removed the catchall occupations from the list, and on hover the tooltip tells you what the highest borrowing occupation in the state was for that year. Restricted the default view to the lower 48 states for simplicity. Used Gold to Red Colour scheme initially, changed this to blue-teal to be more friendly to the colour blind.
+
+Realised my filters could be more throughly leveraged. ie put in your state, CR, income, homeownership and it'll adapt them all for you?
+
+B1 & B2 - Switched to using Loan origination date for clarity.
+
+B3 - mistakenly left out Home Ownership element of Bargraph. Rectified this.
+
+Added a further visualisation to the story - L2.
+
+Restructured the Lender Dashboard To add the Return Over Time vis. Added a filter to the Current Loans/Bad Loans by Occupation Bargraph (L5), so that you can check this state by state.
+
+Added a filter to L4 that allows you to pick the number of delinquencies at the time the loan was taken.
+
+Borrower Dashboard- updated the colours on B1 and B2 to make sure that they were the same for each credit rating system.
+
+Dropped recommendations graphic from Lender info - this doesn't help you decide who to lend to.
+
+
+
+****************************************************************************************************************************************************
+
+Further Changes made for updated submission 25/07/2017:
+
+
+Design decisions justification
+
+I went through the  project and ensured that the Colourblind Palette was used everywhere.
+
+I went with Bar graphs due to the simplicity and clarity with which they allow the viewer to see the differences between Average APR and the other outcome variables.
+
+The filled map was chosen to give a quick and clear overview and I also thought that including in the first slide gave a sense of place to the overall report. 
+
+Line charts were used wherever I wanted to look at changes over time - this allows a clear sense of the underlying trend and is also relevant because of the massive changes that happened, both for Prosper and the global economy during this timescale. They also create a visual contrast with bar graphs and break up the presentation slightly. The downside of this approach was that some of the charts can get very busy with multiple dimensions, particularly occupations - however this allowed me to kill two birds with one stone by adding filters to the charts, clearing them up but also giving the user the ability to interact with the visualisation.
+
+Bubble plots were utilised to give some variety to the presentation and because they are again useful for getting a quick sense of how the data is distributed. In particular I used the bubble plot on the last slide as I felt it emphasised at a glance, what the chances are of a particular loan "going bad" - fairly high based on past experience. 
+
+The boxplot visualisation was chosen as it allowed me to draw attention to not only the raw averages, but also the spread of the data, which was an important factor in helping to interpret income and address the counterintuitive finding that people with 0 income often got a better rate than those on higher incomes.
+
+Observations / Commentary - As I was mainly trying to give the reader the tools to explore whatever they found interesting, I kept my comments brief and tried to talk about general trends rather than specifics.
+
+Use of filters - in addition to the point above in the line chart section, using filters presented me with a slight conundrum; how do I justify the settings that I use to write my commentary when the viewer might not be interested in the same filters as me? I decided it best to stick to general observations, and set the default filters to the setting that gave me the best combination of visual clarity and supporting the story I wanted to tell. For example, the bubble plot in the last slide has been restricted to show only current loans/ defaulted / chargedoff as this was the most important point to make in the context of telling a lender what risk they are taking on - however the filter also gives the viewer the option of adding the other loan statuses back in if they like.
+
+
+4. RESOURCES USED
+Tableau Documentation / Udacity coursework / Udacity Forums
+
